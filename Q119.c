@@ -30,8 +30,7 @@ int main()
         visited[i] = 0;
 
     printf("Enter the elements:\n");
-    for(int i = 0; i < n; i++) 
-    {
+    for(int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
 
         if(visited[arr[i]] == 1) 
