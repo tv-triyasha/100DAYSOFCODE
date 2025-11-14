@@ -17,29 +17,32 @@ Output 3:
 We Are Going To Look At 26 Different Test Cases.
 */
 #include <stdio.h>
-#include <ctype.h>
+#include <string.h>
 
-int main() 
+int main()
 {
     char str[200];
-    
-    printf("Enter the string:\n");
+    int i;
+
+    printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
 
-    int i = 0;
-
-    if (str[0] >= 'a' && str[0] <= 'z')
-        str[0] = str[0] - 32;
-
-    while (str[i] != '\0') 
+    for(i = 0; str[i] != '\0'; i++)
     {
-        if (str[i] == ' ' && (str[i+1] >= 'a' && str[i+1] <= 'z')) {
-            str[i+1] = str[i+1] - 32;
-        }
-        i++;
+        if(str[i] >= 'A' && str[i] <= 'Z')
+            str[i] = str[i] + 32;
     }
 
-    printf("Output: %s", str);
+    if(str[0] >= 'a' && str[0] <= 'z')
+        str[0] = str[0] - 32;
+
+    for(i = 1; str[i] != '\0'; i++)
+    {
+        if(str[i - 1] == ' ' && (str[i] >= 'a' && str[i] <= 'z'))
+            str[i] = str[i] - 32;
+    }
+
+    printf("Sentence case: %s", str);
 
     return 0;
 }
